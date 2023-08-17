@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:presson_break/Levels/level_1.dart';
+import 'package:presson_break/Views/guideView.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -28,7 +32,7 @@ class HomeView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(
-              height: 100,
+              height: 200,
             ),
             const CircleAvatar(
               maxRadius: 50,
@@ -43,21 +47,54 @@ class HomeView extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            TextButton(
-              onPressed: () {},
-              style: _buttonstyle,
-              child: Text(
-                'Start Game',
-                style: _textstyle,
+            SizedBox(
+              width: 140,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Level_1(),
+                    ),
+                  );
+                },
+                style: _buttonstyle,
+                child: Text(
+                  'Start Game',
+                  style: _textstyle,
+                ),
               ),
             ),
-            TextButton(
-              onPressed: () {},
-              child: Text(
-                'Guide',
-                style: _textstyle,
+            SizedBox(
+              width: 160,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => GuideView(),
+                    ),
+                  );
+                },
+                style: _buttonstyle,
+                child: Text(
+                  'Guide',
+                  style: _textstyle,
+                ),
               ),
-              style: _buttonstyle,
+            ),
+            SizedBox(
+              width: 180,
+              child: TextButton(
+                onPressed: () {
+                  exit(0);
+                },
+                style: _buttonstyle,
+                child: Text(
+                  'Exit The Game',
+                  style: _textstyle,
+                ),
+              ),
             ),
           ],
         ),
